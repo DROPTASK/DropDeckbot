@@ -2,7 +2,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useApp } from "@/context/AppContext";
 import { Button } from "@/components/ui/button";
-import { Heart, ChevronLeft, PlusCircle, ExternalLink, Star } from "lucide-react";
+import { Heart, ChevronLeft, PlusCircle, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
@@ -169,17 +169,8 @@ const ProjectDetails = () => {
           )}
           onClick={project.joined ? handleLeaveProject : handleJoinProject}
         >
-          {project.joined ? (
-            <>
-              <Star className="h-4 w-4 fill-dropdeck-purple text-dropdeck-purple" />
-              <span>Joined</span>
-            </>
-          ) : (
-            <>
-              <PlusCircle className="h-4 w-4" />
-              <span>Join</span>
-            </>
-          )}
+          <PlusCircle className="h-4 w-4" />
+          <span>{project.joined ? "Leave" : "Join"}</span>
         </Button>
         
         <Button 
